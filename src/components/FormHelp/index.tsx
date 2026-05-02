@@ -1,4 +1,5 @@
 "use client";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
@@ -124,8 +125,13 @@ const FormHelp = () => {
       await api.post("/create-orders", data);
 
       router.push("/pedidos");
-    } catch (errors) {
-      console.log(errors);
+    } catch (error) {
+      console.log(error, 'create')
+      if (axios.isAxiosError(error)) {
+        const message = error.response?.data?.message;
+        console.log(message)
+        console.log(error)
+      }
     } finally {
       setLoading(false)
     }
@@ -300,7 +306,7 @@ const FormHelp = () => {
                 width={20}
               />
             </span>
-              Usar localizaço atual
+              Usar localização atual
           </button>
         </div>
 
