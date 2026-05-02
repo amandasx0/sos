@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+body {
+  background-color: #ebebeb;
+}
+
+.container-default {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  overflow-x: hidden;
+}
+
+@media (min-width: 640px) {
+  .container-default {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slideDown {
+  animation: slideDown 0.2s ease-out forwards;
+}
+
+
+/* 282828 */
+/* f98806 - laranja */
+/* 22a065 - verde */
+@theme {
+  --color-background-primary: #085bba;
+   --color-background-secondary: #ebebeb;
+   --color-background-hover: #d7f1fe;
+  --color-background-card: #ffffff;
+  --font-sans: var(--font-jakarta), var(--font-inter), sans-serif;
+  --color-text-primary: #5a687c;
+  --color-text-secondary: #282828;
+  --color-text-error: #eb1e1e;
+}
