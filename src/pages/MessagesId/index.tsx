@@ -15,7 +15,8 @@ type Message = {
 };
 
 const MessagesIdPage = () => {
-  const { pedidoId } = useParams() as { pedidoId: string };
+  const params = useParams();
+  const pedidoId = params?.pedidoId;
 
   const [messages, setMessages] = useState<Message[]>([]);
   const [text, setText] = useState("");
@@ -32,13 +33,15 @@ const MessagesIdPage = () => {
   };
 
   useEffect(() => {
+    if (!pedidoId) return;
+
     const delay = setTimeout(() => {
       fetchMessages();
     }, 500);
 
     return () => clearTimeout(delay);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [pedidoId]);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });

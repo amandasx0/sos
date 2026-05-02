@@ -40,6 +40,7 @@ const ReservationPag = () => {
     }, 500);
 
     return () => clearTimeout(delay);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleReply = async (id: number, status: "aprovado" | "recusado") => {
